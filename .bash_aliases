@@ -17,7 +17,7 @@ cht() {
 enc-file-gpg() {
   if [[ -d $1 ]]; then
     tar_file="${1}.tar.gz"
-    tar czf $gzip $tar_file
+    tar czf $tar_file $1
     enc-file-gpg $tar_file
     rm $tar_file
     return
