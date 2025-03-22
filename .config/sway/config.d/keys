@@ -1,0 +1,37 @@
+# volume
+set $volume-control pactl set-sink set-sink-volume @DEFAULT_SINK@ 
+
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec $volume-control +5%
+bindsym XF86AudioLowerVolume exec $volume-control -5%
+
+# brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+# idle
+set $idle /home/qzpml/scripts/lock.sh
+
+bindsym $mod+x exec $idle lock
+bindsym $mod+Shift+x exec $idle lock 10 15
+bindsym $mod+i exec $idle
+ 
+set $run alacritty -e
+set $home /home/qzpml
+set $fm nnn
+
+# apps
+bindsym $mod+F1 exec firefox
+bindsym $mod+F2 exec firefox --private-window
+bindsym $mod+F3 exec firefox --profile bla
+bindsym $mod+F4 exec $run btop
+bindsym $mod+F5 exec $run vim $home/.config
+bindsym $mod+F6 exec 
+bindsym $mod+F7 exec 
+bindsym $mod+F8 exec 
+bindsym $mod+F9 exec 
+bindsym $mod+F10 exec 
+bindsym $mod+F11 exec $run bluetoothctl
+bindsym $mod+F12 exec $run nmtui
+
+bindsym $mod+z exec $run $fm

@@ -1,0 +1,4 @@
+set $laptop eDP-1
+
+bindswitch --reload lid:on output $laptop disable
+bindswitch --reload lid:off output $laptop enable
