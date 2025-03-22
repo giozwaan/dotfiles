@@ -16,7 +16,10 @@ cht() {
 
 enc-file-gpg() {
   if [[ -d $1 ]]; then
-    echo "Cannot encrypt a directory."
+    tar_file=${1}.tar.gz
+    tar czf $gzip $tar_file
+    enc-file-gpg $tar_file
+    rm $tar_file
     return
   fi
 
