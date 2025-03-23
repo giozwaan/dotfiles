@@ -204,7 +204,7 @@
     "custom/idle": {
         "format": "{}",
         "interval": 10,
-        "exec": "cat /home/qzpml/timeouts"
+        "exec": "/home/qzpml/.config/waybar/scripts/timeouts.sh"
     }
     // ,"custom/bla": {
     //   "format": "bla: {}",
