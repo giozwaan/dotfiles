@@ -57,3 +57,5 @@ gen_mirrors() {
     params="${params}&protocol=https&use_mirror_status=on"
     curl -s "https://archlinux.org/mirrorlist/?${params}" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 - > $out
 }
+
+alias vim="nvim"

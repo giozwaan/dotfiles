@@ -26,8 +26,8 @@ _lock() {
 
 [[ $SWAYSOCK ]] && {
   arg=${1:-}
-  [[ $# -gt 2 ]] && shift
- 
+  shift
+   
   case $arg in
     lock  ) _lock $@;;
     *     ) _idle $@;;
