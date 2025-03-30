@@ -7,6 +7,7 @@ M.setup = function()
     ensure_install = {
       "core",
       "stable",
+	  -- "blade",
     },
   }
 
@@ -20,10 +21,10 @@ M.setup = function()
       end
       pcall(vim.treesitter.start)
 
-      local ft = vim.bo[bufnr].filetype
-      if syntax_on[ft] then
-        vim.bo[bufnr].syntax = "on"
-      end
+      -- local ft = vim.bo[bufnr].filetype
+      -- if syntax_on[ft] then
+      --   vim.bo[bufnr].syntax = "on"
+      -- end
     end,
   })
 
@@ -33,15 +34,15 @@ M.setup = function()
     callback = function()
       local parsers = require "nvim-treesitter.parsers"
 
-      parsers.lua = {
-        tier = 0,
+     --  parsers.lua = {
+     --    tier = 0,
 
-        ---@diagnostic disable-next-line: missing-fields
-        install_info = {
-          path = "~/plugins/tree-sitter-lua",
-          files = { "src/parser.c", "src/scanner.c" },
-        },
-      }
+     --    ---@diagnostic disable-next-line: missing-fields
+     --    install_info = {
+     --      path = "~/plugins/tree-sitter-lua",
+     --      files = { "src/parser.c", "src/scanner.c" },
+     --    },
+     --  }
 
     parsers.blade = {
         tier = 0,
