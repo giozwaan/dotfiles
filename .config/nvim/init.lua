@@ -22,12 +22,11 @@ else
     -- Add lazy to the `runtimepath`, this allows us to `require` it.
     vim.opt.rtp:prepend(lazypath)
     
-    -- Set up lazy, and load my `lua/custom/plugins/` folder
-    require("lazy").setup({ import = "plugins" }, {
+    require("lazy").setup({ import = "custom/plugins" }, {
       change_detection = {
         notify = false,
       },
     })
 
-    vim.cmd[[colorscheme tokyonight-night]]
+    vim.cmd[[colorscheme tokyonight]]
 end
