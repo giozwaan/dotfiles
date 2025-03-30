@@ -1,3 +1,15 @@
 /*
 
 !.gitignore
+!.bashrc
+!.bash_aliases
+!.bash_profile
+
+!.config/*
+!.config/sway
+!.config/swaylock
+!.config/waybar
+!.config/wofi
+!.config/nvim
+
+/*

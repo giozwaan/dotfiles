@@ -23,11 +23,6 @@ return {
       "b0o/SchemaStore.nvim",
     },
     config = function()
-      -- Don't do LSP stuff if we're in Obsidian Edit mode
-      if vim.g.obsidian then
-        return
-      end
-
       local extend = function(name, key, values)
         local mod = require(string.format("lspconfig.configs.%s", name))
         local default = mod.default_config
