@@ -8,7 +8,6 @@ return {
         "folke/lazydev.nvim",
         ft = "lua",
      },
-      { "Bilal2453/luvit-meta", lazy = true },
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -22,7 +21,7 @@ return {
       local lspconfig = require "lspconfig"
 
       local servers = {
-        bashls = true,
+        bashls = { manual_install = true },
         gopls = {
           manual_install = true,
           settings = {
@@ -40,30 +39,15 @@ return {
           },
         },
         lua_ls = {
-          server_capabilities = {
-            semanticTokensProvider = vim.NIL,
-          },
+         	manual_install = true,
+			server_capabilities = {
+				semanticTokensProvider = vim.NIL,
+          	},
         },
-        rust_analyzer = true,
         intelephense = true,
-
-        pyright = true,
+		denols = { manual_install = true },
+        pyright = { manual_install = true },
         ruff = { manual_install = true },
-        -- ts_ls = {
-        --   root_dir = require("lspconfig").util.root_pattern "package.json",
-        --   single_file = false,
-        --   server_capabilities = {
-        --     documentFormattingProvider = false,
-        --   },
-        -- },
-        clangd = {
-          -- cmd = { "clangd", unpack(require("custom.clangd").flags) },
-          -- TODO: Could include cmd, but not sure those were all relevant flags.
-          --    looks like something i would have added while i was floundering
-          init_options = { clangdFileStatus = true },
-
-          filetypes = { "c" },
-        },
       }
 
       local servers_to_install = vim.tbl_filter(function(key)
@@ -76,10 +60,7 @@ return {
       end, vim.tbl_keys(servers))
 
       require("mason").setup()
-      local ensure_installed = {
-        "stylua",
-        "lua_ls",
-      }
+      local ensure_installed = {}
 
       vim.list_extend(ensure_installed, servers_to_install)
       require("mason-tool-installer").setup { ensure_installed = ensure_installed }
