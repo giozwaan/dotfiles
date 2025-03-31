@@ -1,12 +1,6 @@
 if vim.g.vscode then
     -- VSCode extension
 else
-    vim.opt.number = true
-    vim.opt.hlsearch = true
-    vim.opt.ignorecase = true
-    vim.opt.tabstop = 4
-    vim.opt.shiftwidth = 4
-
     local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
     if not vim.uv.fs_stat(lazypath) then
       vim.fn.system {
