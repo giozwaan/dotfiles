@@ -129,6 +129,7 @@ return {
 		  	vim.diagnostic.config({ virtual_text = virtual_text })
 	  	  end
 
+          vim.diagnostic.config({ virtual_text = virtual_text })
 		  vim.keymap.set("n", "<space>tt", toggle_hint)
 
           local filetype = vim.bo[bufnr].filetype
