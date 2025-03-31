@@ -12,40 +12,8 @@ return {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "WhoIsSethDaniel/mason-tool-installer.nvim",
-
-      -- { "j-hui/fidget.nvim", opts = {} },
-      -- { "https://git.sr.ht/~whynothugo/lsp_lines.nvim" },
-
-      -- Autoformatting
-      -- "stevearc/conform.nvim",
-
-      -- Schema information
-      "b0o/SchemaStore.nvim",
     },
     config = function()
-      local extend = function(name, key, values)
-        local mod = require(string.format("lspconfig.configs.%s", name))
-        local default = mod.default_config
-        local keys = vim.split(key, ".", { plain = true })
-        while #keys > 0 do
-          local item = table.remove(keys, 1)
-          default = default[item]
-        end
-
-        if vim.islist(default) then
-          for _, value in ipairs(default) do
-            table.insert(values, value)
-          end
-        else
-          for item, value in pairs(default) do
-            if not vim.tbl_contains(values, item) then
-              values[item] = value
-            end
-          end
-        end
-        return values
-      end
-
       local capabilities = nil
       if pcall(require, "cmp_nvim_lsp") then
         capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -77,17 +45,10 @@ return {
           },
         },
         rust_analyzer = true,
-        svelte = true,
-        templ = true,
-        taplo = true,
         intelephense = true,
 
         pyright = true,
         ruff = { manual_install = true },
-        -- mojo = { manual_install = true },
-
-        -- Enabled biome formatting, turn off all the other ones generally
-        biome = true,
         -- ts_ls = {
         --   root_dir = require("lspconfig").util.root_pattern "package.json",
         --   single_file = false,
@@ -95,43 +56,6 @@ return {
         --     documentFormattingProvider = false,
         --   },
         -- },
-        vtsls = {
-          server_capabilities = {
-            documentFormattingProvider = false,
-          },
-        },
-        -- denols = true,
-        jsonls = {
-          server_capabilities = {
-            documentFormattingProvider = false,
-          },
-          settings = {
-            json = {
-              schemas = require("schemastore").json.schemas(),
-              validate = { enable = true },
-            },
-          },
-        },
-
-        -- cssls = {
-        --   server_capabilities = {
-        --     documentFormattingProvider = false,
-        --   },
-        -- },
-
-        yamlls = {
-          settings = {
-            yaml = {
-              schemaStore = {
-                enable = false,
-                url = "",
-              },
-              -- schemas = require("schemastore").yaml.schemas(),
-            },
-          },
-        },
-
-
         clangd = {
           -- cmd = { "clangd", unpack(require("custom.clangd").flags) },
           -- TODO: Could include cmd, but not sure those were all relevant flags.
@@ -140,30 +64,6 @@ return {
 
           filetypes = { "c" },
         },
-
-        -- tailwindcss = {
-        --   init_options = {
-        --     userLanguages = {
-        --       elixir = "phoenix-heex",
-        --       eruby = "erb",
-        --       heex = "phoenix-heex",
-        --     },
-        --   },
-        --   filetypes = extend("tailwindcss", "filetypes", { "ocaml.mlx" }),
-        --   settings = {
-        --     tailwindCSS = {
-        --       experimental = {
-        --         classRegex = {
-        --           [[class: "([^"]*)]],
-        --           [[className="([^"]*)]],
-        --         },
-        --       },
-        --       includeLanguages = extend("tailwindcss", "settings.tailwindCSS.includeLanguages", {
-        --         ["ocaml.mlx"] = "html",
-        --       }),
-        --     },
-        --   },
-        -- },
       }
 
       local servers_to_install = vim.tbl_filter(function(key)
@@ -179,8 +79,6 @@ return {
       local ensure_installed = {
         "stylua",
         "lua_ls",
-        -- "delve",
-        -- "tailwind-language-server",
       }
 
       vim.list_extend(ensure_installed, servers_to_install)
@@ -242,20 +140,6 @@ return {
           end
         end,
       })
-
-      -- require("custom.autoformat").setup()
-
-     --  require("lsp_lines").setup()
-     --  vim.diagnostic.config { virtual_text = true, virtual_lines = false }
-
-     --  vim.keymap.set("", "<leader>l", function()
-     --    local config = vim.diagnostic.config() or {}
-     --    if config.virtual_text then
-     --      vim.diagnostic.config { virtual_text = false, virtual_lines = true }
-     --    else
-     --      vim.diagnostic.config { virtual_text = true, virtual_lines = false }
-     --    end
-     --  end, { desc = "Toggle lsp_lines" })
     end,
   },
 }

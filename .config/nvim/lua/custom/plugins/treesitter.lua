@@ -1,9 +1,9 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
+    -- dependencies = {
       -- { "reasonml-editor/tree-sitter-reason" },
-    },
+    -- },
     build = ":TSUpdate",
     branch = "main",
     lazy = false,
