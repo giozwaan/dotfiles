@@ -4,6 +4,7 @@
 !.bashrc
 !.bash_aliases
 !.bash_profile
+!.tmux.conf
 
 !.config/*
 !.config/sway
