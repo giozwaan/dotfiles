@@ -1,21 +1,12 @@
 set -u
 
-confirm() {
-  if [[ $# -eq 0  ]]; then
-    return
-  fi
-
-  read -p 'y[N] ' choice
-  [[ $choice =~ ^[yY]$ ]] && "$@"
-}
-
 cht() {
-  [[ $# -eq 0 ]] && return
-  curl cheat.sh/"$1"
+  [ $# -eq 0 ] && return
+  curl cheat.sh/"${1}"
 }
 
 enc-file-gpg() {
-  if [[ -d $1 ]]; then
+  if [ -d $1 ]; then
     tar_file="${1}.tar.gz"
     tar czf $tar_file $1
     enc-file-gpg $tar_file
@@ -23,7 +14,7 @@ enc-file-gpg() {
     return
   fi
 
-  if [[ ! -f $1 ]]; then
+  if [ ! -f $1 ]; then
     return
   fi
 
@@ -37,11 +28,11 @@ enc-file-gpg() {
 }
 
 dec-file-gpg() {
-  if [[ ! -f $1 ]]; then
+  if [ ! -f $1 ]; then
     return
   fi
 
-  _file=$(basename $1 | sed 's\.gpg$\\')
+  _file=$(basename $1 | sed "s\.gpg$\\")
   
   gpg \
     --decrypt \

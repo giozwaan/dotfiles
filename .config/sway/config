@@ -228,7 +228,7 @@ input type:touchpad  {
     natural_scroll enabled
 }
 
-xwayland enable
+xwayland disable
 output eDP-1 scale 1.3
 # output HDMI-A-1 mode 1920x1080@144.001Hz
 include /home/qzpml/.config/sway/config.d/*
