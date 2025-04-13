@@ -32,7 +32,7 @@ dec-file-gpg() {
     return
   fi
 
-  _file=$(basename $1 | sed "s\.gpg$\\")
+  _file=$(basename $1 | sed "s\.gpg$\\\\")
   
   gpg \
     --decrypt \
