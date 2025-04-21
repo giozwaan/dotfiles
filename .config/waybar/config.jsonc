@@ -18,6 +18,7 @@
     "modules-right": [
         "mpd",
         "custom/idle",
+        "custom/sensors",
         "idle_inhibitor",
         // "bluetooth",
         "power-profiles-daemon",
@@ -166,6 +167,7 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "",
+        "format-ethernet": "",
         // "format-ethernet": "{ipaddr}/{cidr} ",
         // "tooltip-format": "{ifname} via {gwaddr} ",
         // "format-linked": "{ifname} (No IP) ",
@@ -201,27 +203,14 @@
 	    "tooltip-format-enumerate-connected": "{device_alias}",
       "on-click": "blueman-manager"
     },
-    "custom/idle": {
+     "custom/idle": {
         "format": "{}",
         "interval": 10,
         "exec": "/home/qzpml/.config/waybar/scripts/timeouts.sh"
+    },
+    "custom/sensors": {
+        "format": "GPU {}",
+        "interval": 10,
+        "exec": "/home/qzpml/.config/waybar/scripts/sensors.sh"
     }
-    // ,"custom/bla": {
-    //   "format": "bla: {}",
-    //   "return-type": "json",
-    //   "interval": "once",
-    //   "exec": "$HOME/.config/waybar/bla.sh 2> /dev/null"
-    // }
-    //"custom/media": {
-    //    "format": "{icon} {}",
-    //    "return-type": "json",
-    //    "max-length": 40,
-    //    "format-icons": {
-    //        "spotify": "",
-    //        "default": "🎜"
-    //    },
-    //    "escape": true,
-    //    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-    //    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    //}
 }
