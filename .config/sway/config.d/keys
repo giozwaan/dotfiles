@@ -1,5 +1,5 @@
 # volume
-set $volume-control pactl set-sink set-sink-volume @DEFAULT_SINK@ 
+set $volume-control pactl set-sink-volume @DEFAULT_SINK@
 
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec $volume-control +5%
