@@ -10,7 +10,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 # idle
-set $idle /home/qzpml/scripts/lock.sh
+set $idle $home/scripts/lock.sh
 
 bindsym $mod+x exec $idle lock
 bindsym $mod+Shift+x exec $idle lock 10 15
