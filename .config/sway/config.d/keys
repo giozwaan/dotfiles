@@ -31,5 +31,4 @@ bindsym $mod+F10 exec
 bindsym $mod+F11 exec 
 bindsym $mod+F12 exec 
 
-set $fm Thunar
 bindsym $mod+z exec $fm 

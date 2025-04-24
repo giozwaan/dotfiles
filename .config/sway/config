@@ -13,14 +13,11 @@ set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+
 set $term alacritty
 set $fm Thunar
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-# set $menu dmenu_path | wmenu | xargs swaymsg exec --
 set $menu wofi --show
+set $home /home/qzpml
 
 ### Output configuration
 #
@@ -199,8 +196,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# bindsym $mod+z exec $fm
-
 #
 # Status Bar:
 #
@@ -227,8 +222,6 @@ default_border pixel 2
 input type:touchpad  {
     natural_scroll enabled
 }
-
-set $home /home/qzpml
 
 xwayland enable
 output eDP-1 scale 1.3
