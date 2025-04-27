@@ -17,5 +17,6 @@ if [ -z "${WAYLAND_DISPLAY:-}" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] 
     export QT_QPA_PLATFORMTHEME='qt5ct:qt6ct'
     export MOZ_ENABLE_WAYLAND=1
 
-    exec sway
+    exec start-cosmic
+    # exec sway
 fi
