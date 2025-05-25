@@ -17,8 +17,8 @@
     // ],
     "modules-right": [
         "mpd",
-        "custom/idle",
-        "custom/sensors",
+        // "custom/idle",
+        // "custom/sensors",
         "idle_inhibitor",
         // "bluetooth",
         "power-profiles-daemon",
@@ -206,11 +206,11 @@
      "custom/idle": {
         "format": "{}",
         "interval": 10,
-        "exec": "/home/qzpml/.config/waybar/scripts/timeouts.sh"
+        "exec": "/home/bla/.config/waybar/scripts/timeouts.sh"
     },
     "custom/sensors": {
         "format": "GPU {}",
         "interval": 10,
-        "exec": "/home/qzpml/.config/waybar/scripts/sensors.sh"
+        "exec": "/home/bla/.config/waybar/scripts/sensors.sh"
     }
 }

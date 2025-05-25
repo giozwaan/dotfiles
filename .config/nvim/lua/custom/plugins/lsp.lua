@@ -21,29 +21,9 @@ return {
 
       local servers = {
         bashls = { manual_install = true },
-        gopls = {
-          manual_install = true,
-          settings = {
-            gopls = {
-              hints = {
-                assignVariableTypes = true,
-                compositeLiteralFields = true,
-                compositeLiteralTypes = true,
-                constantValues = true,
-                functionTypeParameters = true,
-                parameterNames = true,
-                rangeVariableTypes = true,
-              },
-            },
-          },
-        },
-        lua_ls = {
-         	manual_install = true,
-			server_capabilities = {
-				semanticTokensProvider = vim.NIL,
-          	},
-        },
-        intelephense = true,
+        -- gopls = { manual_install = true },
+        lua_ls = { manual_install = true },
+        -- intelephense = true,
 		denols = { manual_install = true },
         pyright = { manual_install = true },
         ruff = { manual_install = true },
@@ -62,20 +42,10 @@ return {
         lspconfig[name].setup(config)
       end
 
-      local disable_semantic_tokens = {
-        lua = true,
-      }
-
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
-          local bufnr = args.buf
           local client = assert(vim.lsp.get_client_by_id(args.data.client_id), "must have valid client")
-
           local settings = servers[client.name]
-          if type(settings) ~= "table" then
-            settings = {}
-          end
-
           local builtin = require "telescope.builtin"
 
           vim.opt_local.omnifunc = "v:lua.vim.lsp.omnifunc"
@@ -98,11 +68,6 @@ return {
 
           vim.diagnostic.config({ virtual_text = virtual_text })
 		  vim.keymap.set("n", "<space>tt", toggle_hint)
-
-          local filetype = vim.bo[bufnr].filetype
-          if disable_semantic_tokens[filetype] then
-            client.server_capabilities.semanticTokensProvider = nil
-          end
 
           -- Override server capabilities
           if settings.server_capabilities then
