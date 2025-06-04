@@ -2,6 +2,7 @@
 set $volume-control pactl set-sink-volume @DEFAULT_SINK@
 
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute 0 toggle
 bindsym XF86AudioRaiseVolume exec $volume-control +5%
 bindsym XF86AudioLowerVolume exec $volume-control -5%
 

@@ -15,7 +15,7 @@ set $up k
 set $right l
 
 set $term alacritty
-set $fm Thunar
+set $fm dolphin
 set $menu wofi --show
 set $home /home/bla
 
@@ -224,6 +224,6 @@ input type:touchpad  {
 }
 
 xwayland enable
-output eDP-1 scale 1.3
+output eDP-1 scale 1.2
 # output HDMI-A-1 mode 1920x1080@144.001Hz
 include $home/.config/sway/config.d/*
