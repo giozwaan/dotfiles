@@ -1,4 +1,3 @@
-#!/usr/bin/bash
 
 set -u
 
@@ -9,7 +8,7 @@ _idle() {
 
   swayidle -w \
     timeout $idle_timeout 'swaylock && swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    timeout $sleep_timeout 'systemctl suspend' &
+    timeout $sleep_timeout 'systemctl suspend'
 }
 
 _lock() {
@@ -19,7 +18,7 @@ _lock() {
 
   swayidle -w \
     timeout $idle_timeout 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    timeout $sleep_timeout 'systemctl suspend' &
+    timeout $sleep_timeout 'systemctl suspend'
   
   swaylock -f 
 }
@@ -29,7 +28,8 @@ _lock() {
   shift
    
   case $arg in
+    idle  ) _idle $@;;
     lock  ) _lock $@;;
-    *     ) _idle $@;;
+    *     ) echo "arg1 idle | lock";;
   esac
 }
