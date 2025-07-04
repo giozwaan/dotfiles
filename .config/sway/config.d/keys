@@ -11,25 +11,31 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 # idle
-set $idle $home/scripts/lock.sh
+set $lock $home/scripts/lock.sh
+set $idle_timeout 120
+set $sleep_timeout 600
 
-bindsym $mod+x exec $idle lock
-bindsym $mod+Shift+x exec $idle lock 10 15
-bindsym $mod+i exec $idle
-bindsym $mod+Shift+i exec $idle lock 10 3600
+bindsym $mod+i exec $lock idle $idle_timeout $sleep_timeout
+bindsym $mod+Shift+i exec $lock lock 10 3600
+
+set $idle_timeout_lock 10
+set $sleep_timeout_lock 300
+
+bindsym $mod+x exec $lock lock $idle_timeout $sleep_timeout
+bindsym $mod+Shift+x exec $lock lock 10 15
 
 # apps
 bindsym $mod+F1 exec firefox
 bindsym $mod+F2 exec firefox --private-window
-bindsym $mod+F3 exec firefox --profile bla
-bindsym $mod+F4 exec 
-bindsym $mod+F5 exec 
-bindsym $mod+F6 exec 
-bindsym $mod+F7 exec 
-bindsym $mod+F8 exec 
-bindsym $mod+F9 exec 
-bindsym $mod+F10 exec 
-bindsym $mod+F11 exec 
-bindsym $mod+F12 exec 
+# bindsym $mod+F3 exec 
+# bindsym $mod+F4 exec 
+# bindsym $mod+F5 exec 
+# bindsym $mod+F6 exec 
+# bindsym $mod+F7 exec 
+# bindsym $mod+F8 exec 
+# bindsym $mod+F9 exec 
+# bindsym $mod+F10 exec 
+# bindsym $mod+F11 exec 
+# bindsym $mod+F12 exec 
 
 bindsym $mod+z exec $fm 
