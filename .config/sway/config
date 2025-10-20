@@ -17,7 +17,7 @@ set $right l
 set $term alacritty
 set $fm dolphin
 set $menu wofi --show
-set $home /home/bla
+set $home /home/gio
 
 ### Output configuration
 #
@@ -225,5 +225,6 @@ input type:touchpad  {
 
 xwayland enable
 output eDP-1 scale 1.2
+output HDMI-A-1 scale 1.7
 # output HDMI-A-1 mode 1920x1080@144.001Hz
 include $home/.config/sway/config.d/*

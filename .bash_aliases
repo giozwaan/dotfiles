@@ -44,9 +44,10 @@ dec-file-gpg() {
 
 gen_mirrors() {
     out="${HOME}/mirrorlist"
-    params="country=NL&country=FR&country=DE&country=GB&country=SE&country=CH"
-    params="${params}&protocol=https&use_mirror_status=on"
-    curl -s "https://archlinux.org/mirrorlist/?${params}" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 - > $out
+    reflector \
+        --save $out \
+        --protocol https \
+        --country Netherlands,France,Germany \
+        --age 12 \
+        --sort rate
 }
-
-alias vim="nvim"
