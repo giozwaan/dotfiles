@@ -3,5 +3,7 @@ return {
     priority = 1000,
     opts = {},
     "folke/tokyonight.nvim",
-    { "catppuccin/nvim", name = "catppuccin" },
+    config = function()
+        vim.cmd("colorscheme tokyonight")
+    end,
 }
