@@ -15,7 +15,7 @@ return {
     end
 
     vim.diagnostic.config({ virtual_text = virtual_text })
-    vim.keymap.set("", "<space>tt", toggle_hint)
+    vim.keymap.set("n", "<space>tt", toggle_hint)
 
     cmp.setup {
       sources = {
