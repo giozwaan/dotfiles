@@ -13,4 +13,5 @@ cp $HOME/.bashrc $HOME/dotfiles
 cp $HOME/.bash_aliases $HOME/dotfiles
 cp $HOME/.bash_profile $HOME/dotfiles
 cp $HOME/.tmux.conf $HOME/dotfiles
-
+cp $HOME/dotfiles.sh $HOME/dotfiles
+cp $HOME/packages.sh $HOME/dotfiles
