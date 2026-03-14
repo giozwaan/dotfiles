@@ -1,6 +1,7 @@
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
+      "neovim/nvim-lspconfig",
       "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
@@ -51,5 +52,37 @@ return {
     vim.lsp.config("*", {
       capabilities = capabilities,
     })
+
+    vim.lsp.config("bash_ls", {
+        capabilities = capabilities
+    })
+
+    vim.lsp.config("lua_ls", {
+        cmd = { "lua-language-server" },
+        filetypes = { "lua" },
+        settings = {
+            Lua = {
+                runtime = {
+                    version = "LuaJIT",
+                },
+                workspace = {
+                    library = vim.api.nvim_get_runtime_file("", true),
+                },
+                diagnostics = {
+                    globals = {
+                        "vim",
+                    },
+                },
+                telemetry = {
+                    enable = false,
+                }}
+            }
+    })
+
+    vim.lsp.enable("lua_ls")
+    vim.lsp.enable("bash_ls")
+    vim.lsp.enable("ts_ls")
+    vim.lsp.enable("pyright")
+    vim.lsp.enable("svelte")
   end,
 }
