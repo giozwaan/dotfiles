@@ -33,7 +33,7 @@ dec-file-gpg() {
   fi
 
   _file=$(basename $1 | sed "s\.gpg$\\\\")
-  
+ 
   gpg \
     --decrypt \
     --pinentry-mode loopback \

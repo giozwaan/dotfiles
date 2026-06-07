@@ -3,7 +3,7 @@
  
     swayidle -w \
         timeout 60 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-        timeout 300 'systemctl suspend' \
+        timeout 9999 'systemctl suspend' \
         before-sleep 'pidof swaylock || swaylock -f' &
 
     pidof swaylock || swaylock -f

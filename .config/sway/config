@@ -15,7 +15,7 @@ set $up k
 set $right l
 
 set $term alacritty
-set $menu fuzzel
+set $menu rofi -show drun -disable-history -show-icons
 set $home /home/gio
 
 ### Key bindings

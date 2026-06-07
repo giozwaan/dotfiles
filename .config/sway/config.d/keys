@@ -1,5 +1,4 @@
 bindsym $mod+Shift+i exec $home/scripts/idle.sh
 
 bindsym $mod+x exec $home/scripts/lock.sh
-bindsym $mod+Shift+x exec $home/scripts/lock.sh 10 9999
-
+bindsym $mod+Shift+x exec $home/scripts/lock2.sh
