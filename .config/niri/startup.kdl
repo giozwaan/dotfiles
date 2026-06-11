@@ -1,0 +1,7 @@
+spawn-at-startup "waybar"
+
+spawn-sh-at-startup "swaybg -i ~/Pictures/bg.jpeg -m fill"
+
+hotkey-overlay {
+    skip-at-startup
+}

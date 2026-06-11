@@ -1,0 +1,6 @@
+binds {
+    Mod+D { spawn-sh "rofi -show drun -disable-history -show-icons"; }
+    Mod+Shift+I { spawn-sh "~/scripts/idle.sh"; }
+    Mod+X { spawn-sh "~/scripts/lock.sh"; }
+    Mod+Shift+X { spawn-sh "~/scripts/lock2.sh"; }
+}
