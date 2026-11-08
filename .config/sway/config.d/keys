@@ -1,4 +1,10 @@
 bindsym $mod+Shift+i exec $home/scripts/idle.sh
 
 bindsym $mod+x exec $home/scripts/lock.sh
+bindsym $mod+p exec dolphin
 bindsym $mod+Shift+x exec $home/scripts/lock2.sh
+
+bindsym $mod+Shift+n exec noctalia msg settings-open
+bindsym $mod+Shift+z exec noctalia msg caffeine-toggle
+bindsym $mod+Shift+t exec noctalia msg theme-mode-toggle
+bindsym $mod+d exec noctalia msg panel-toggle launcher

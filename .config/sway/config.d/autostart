@@ -1,2 +1,2 @@
-exec waybar
+exec noctalia
 exec $home/scripts/idle.sh
